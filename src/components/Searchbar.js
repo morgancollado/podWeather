@@ -7,9 +7,7 @@ export default class SearchBar extends React.Component {
     render() {
         return(
             <div>
-                <SearchForm />
-                <Forecast />
-                
+                <Forecast />    
             </div>
         )
     }
