@@ -1,7 +1,7 @@
 import React from "react"
 
 export default class Location extends React.Component {
-    constructor () {
+    constructor(props) {
         super()
         this.state = {
             airQuality: "",
@@ -9,17 +9,14 @@ export default class Location extends React.Component {
             moonPhase: "",
             precipitationDate: "",
             temp: "",
-            windspeed: ""  
+            windspeed: ""
         }
     }
 
-
-
     render() {
-        return(
+        console.log(this.props.forecastData)
+        return (
             <div>
-               
-                
             </div>
         )
     }
