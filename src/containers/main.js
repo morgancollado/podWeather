@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Forecast from '../components/Forecast';
+import Sidebar from '../components/Sidebar'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -13,7 +14,8 @@ class Main extends Component {
                 description: "",
                 temp: "",
                 windspeed: ""
-            }
+            }, 
+            cities: []
         }
     }
 
@@ -42,12 +44,26 @@ class Main extends Component {
 
     componentDidMount() {
         this.fetchCityData()
+        this.fetchSideBarData()
     }
+
+    fetchSideBarData(){
+        fetch("http://localhost:3000/cities")
+        .then(r => r.json())
+        .then(data => {
+            this.setState({
+                cities: data
+            })
+        })
+    }
+
+
 
     render() {
         return (
             <div>
                 <Forecast fetchCityData={this.fetchCityData} forecastData={this.state.locationData} />
+                <Sidebar cities={this.state.cities}/>
             </div>
         )
     }
